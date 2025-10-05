@@ -1,0 +1,427 @@
+/* --- Variables de Color y Globales --- */
+:root {
+    --color-background: #121212;
+    --color-surface: #181818;
+    --color-surface-light: #282828;
+    
+    /* Nuevos colores de acento */
+    --color-accent-purple: #8A2BE2; /* Morado (BlueViolet) */
+    --color-accent-gold: #FFB700;   /* Un dorado más anaranjado para mejor contraste con el morado que #FFD700 */
+    --color-accent-gradient: linear-gradient(100deg, var(--color-accent-purple), var(--color-accent-gold)); /* Ajusta el ángulo a tu gusto */
+    --color-accent-purple-hover: #7b24c8; /* Morado más oscuro para hover */
+    --color-accent-gold-hover: #e0a000;  /* Dorado más oscuro para hover */
+
+    --color-text-primary: #FFFFFF;
+    --color-text-secondary: #b3b3b3;
+    --color-text-placeholder: #757575;
+    --color-border-subtle: #303030;
+
+    --font-family-main: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    --sidebar-width: 280px;
+    --top-nav-height: 60px;
+    --secondary-nav-height: 50px;
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-family-main);
+    background-color: var(--color-background);
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+}
+
+/* --- Barra de Navegación Superior --- */
+.top-nav {
+    background-color: var(--color-surface);
+    height: var(--top-nav-height);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.top-nav .logo {
+    font-size: 1.5em;
+    font-weight: bold;
+    /* Aplicando degradado al texto del logo */
+    background: var(--color-accent-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent; /* Hace el texto transparente para mostrar el fondo degradado */
+    /* Fallback por si el navegador no soporta background-clip: text */
+    /* color: var(--color-accent-purple); */
+    display: flex;
+    align-items: center;
+}
+.top-nav .logo .logo-icon {
+    /* El icono no puede tener texto degradado directamente, así que lo coloreamos con el morado */
+    /* O podrías usar un SVG con degradado si es crucial */
+    color: var(--color-accent-purple); /* Color sólido para el icono */
+    margin-right: 8px;
+    -webkit-text-fill-color: var(--color-accent-purple); /* Para asegurar que el color del icono no sea transparente */
+}
+
+
+.top-nav .search-bar-main {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.top-nav .search-input-group {
+    display: flex;
+    align-items: center;
+    background-color: var(--color-surface-light);
+    padding: 8px 12px;
+    border-radius: 20px;
+    color: var(--color-text-placeholder);
+}
+
+.top-nav .search-input-group i {
+    margin-right: 8px;
+}
+
+.top-nav .search-input-group input {
+    background: none;
+    border: none;
+    outline: none;
+    color: var(--color-text-primary);
+    font-size: 0.9em;
+    width: 180px;
+}
+.top-nav .search-input-group input::placeholder {
+    color: var(--color-text-placeholder);
+}
+
+.top-nav .search-button-main {
+    background-image: var(--color-accent-gradient);
+    color: var(--color-text-primary); /* Texto blanco sobre el degradado */
+    border: none;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    font-size: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: filter 0.2s;
+}
+.top-nav .search-button-main:hover {
+    filter: brightness(1.2); /* Hace el degradado más brillante en hover */
+}
+
+.top-nav .user-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.top-nav .notification-icon {
+    font-size: 1.3em;
+    color: var(--color-text-secondary);
+    cursor: pointer;
+}
+.top-nav .notification-icon:hover {
+    color: var(--color-text-primary);
+}
+
+.top-nav .user-profile-nav {
+    color: var(--color-text-primary);
+    font-weight: 500;
+    cursor: pointer;
+}
+.top-nav .user-profile-nav i {
+    margin-left: 5px;
+    font-size: 0.8em;
+}
+
+/* --- Barra de Navegación Secundaria --- */
+.secondary-nav {
+    background-color: var(--color-surface);
+    height: var(--secondary-nav-height);
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.secondary-nav ul {
+    display: flex;
+    gap: 5px;
+    width: 100%;
+    justify-content: flex-start;
+}
+
+.secondary-nav ul li a {
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--color-text-secondary);
+    font-weight: 500;
+    font-size: 0.9em;
+    border-radius: 4px 4px 0 0; /* Redondeo solo arriba para el borde inferior */
+    transition: background-color 0.2s, color 0.2s;
+    position: relative; /* Para el borde con pseudo-elemento si border-image no es ideal */
+    border-bottom: 3px solid transparent; /* Espacio para el borde */
+}
+
+.secondary-nav ul li a:hover {
+    color: var(--color-text-primary);
+    background-color: var(--color-surface-light);
+}
+
+.secondary-nav ul li.active a {
+    color: var(--color-accent-purple); /* Color de texto principal para la pestaña activa */
+    border-image-source: var(--color-accent-gradient);
+    border-image-slice: 1;
+    border-image-width: 0 0 3px 0; /* Solo borde inferior con el degradado */
+    border-style: solid; /* Necesario para border-image */
+    padding-bottom: calc(10px - 3px); /* Ajuste del padding para compensar el borde */
+}
+.secondary-nav ul li.active a i {
+    color: var(--color-accent-purple); /* Icono de la pestaña activa con el color morado */
+}
+
+
+/* --- Área de Contenido Principal --- */
+.main-content-area {
+    display: flex;
+    padding: 20px;
+    gap: 20px;
+    height: calc(100vh - var(--top-nav-height) - var(--secondary-nav-height) - 40px);
+    overflow: hidden;
+}
+
+/* --- Barra Lateral Izquierda --- */
+.left-sidebar {
+    width: var(--sidebar-width);
+    min-width: var(--sidebar-width);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+.sidebar-card {
+    background-color: var(--color-surface);
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid var(--color-border-subtle);
+}
+.sidebar-card h3, .sidebar-card h4 {
+    color: var(--color-text-primary);
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+.sidebar-card p {
+    margin-bottom: 15px;
+    font-size: 0.9em;
+}
+
+.profile-completion-card .profile-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.profile-completion-card .avatar-placeholder {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--color-surface-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8em;
+    color: var(--color-text-secondary);
+    margin-right: 15px;
+}
+.profile-completion-card .profile-status {
+    font-weight: bold;
+    color: var(--color-text-primary);
+    font-size: 0.95em;
+}
+.progress-bar-container {
+    background-color: var(--color-surface-light);
+    border-radius: 4px;
+    height: 8px;
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+.progress-bar {
+    background-image: var(--color-accent-gradient);
+    height: 100%;
+    border-radius: 4px;
+}
+.cta-button {
+    background-image: var(--color-accent-gradient);
+    color: var(--color-text-primary); /* Texto blanco sobre el degradado */
+    border: none;
+    padding: 12px 15px;
+    border-radius: 6px;
+    font-weight: bold;
+    width: 100%;
+    font-size: 0.95em;
+    transition: filter 0.2s;
+}
+.cta-button:hover {
+    filter: brightness(1.2); /* Hace el degradado más brillante en hover */
+}
+
+.tests-evaluations-card .badges-placeholder {
+    display: flex;
+    gap: 15px;
+    font-size: 1.8em;
+    color: var(--color-text-placeholder);
+    margin-top: 10px;
+}
+.tests-evaluations-card .badges-placeholder i {
+    padding: 5px;
+    background-color: var(--color-surface-light);
+    border-radius: 4px;
+}
+
+.profile-views-card h4 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+.profile-views-card h4 i {
+    font-size: 0.8em;
+}
+
+
+/* --- Listado de Ofertas --- */
+.job-listings {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+.job-listings h2 {
+    color: var(--color-text-primary);
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.8em;
+}
+.job-listings h2 .highlight-accent { /* Clase actualizada */
+    background: var(--color-accent-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    /* Fallback por si el navegador no soporta background-clip: text */
+    /* color: var(--color-accent-purple); */
+}
+
+.job-card {
+    background-color: var(--color-surface);
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border: 1px solid var(--color-border-subtle);
+    position: relative;
+}
+.job-card:hover {
+    border-color: var(--color-accent-purple); /* Hover con el color morado para el borde */
+}
+
+.job-card .job-title {
+    color: var(--color-text-primary);
+    font-size: 1.3em;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+.job-card .job-company-info {
+    font-weight: 500;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.job-card .job-company-info .company-icon {
+    color: var(--color-text-placeholder);
+}
+.job-card .company-rating {
+    font-size: 0.9em;
+    color: var(--color-text-placeholder);
+}
+.job-card .company-rating .fa-star {
+    color: #f0c040;
+}
+
+.job-card p {
+    margin-bottom: 8px;
+    font-size: 0.95em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.job-card p i {
+    color: var(--color-text-placeholder);
+    width: 16px;
+    text-align: center;
+}
+
+.job-card .job-timestamp {
+    font-size: 0.85em;
+    color: var(--color-text-placeholder);
+    margin-top: 15px;
+}
+
+.featured-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-image: var(--color-accent-gradient);
+    color: var(--color-text-primary); /* Texto blanco sobre el degradado */
+    padding: 5px 10px;
+    font-size: 0.8em;
+    font-weight: bold;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* --- Scrollbars personalizadas (Opcional) --- */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+::-webkit-scrollbar-track {
+    background: var(--color-surface-light);
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb {
+    background: var(--color-text-placeholder);
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background-image: var(--color-accent-gradient); /* Scrollbar thumb hover con degradado */
+    /* O un color sólido si el degradado es demasiado: */
+    /* background: var(--color-accent-purple); */
+}

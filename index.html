@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal de Empleo - Dark Theme Gradient</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="job-portal-container">
+        <header class="top-nav">
+            <div class="logo">
+                <i class="fas fa-briefcase logo-icon"></i> PortalEmpleo
+            </div>
+            <div class="search-bar-main">
+                <div class="search-input-group">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Cargo o categoría">
+                </div>
+                <div class="search-input-group">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <input type="text" placeholder="Lugar">
+                </div>
+                <button class="search-button-main">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+            <div class="user-actions">
+                <i class="fas fa-bell notification-icon"></i>
+                <div class="user-profile-nav">
+                    Sergio Gomez <i class="fas fa-chevron-down"></i>
+                </div>
+            </div>
+        </header>
+
+        <nav class="secondary-nav">
+            <ul>
+                <li class="active"><a href="#"><i class="fas fa-user-circle"></i> Mi área</a></li>
+                <li><a href="#"><i class="fas fa-file-alt"></i> Mi currículum</a></li>
+                <li><a href="#"><i class="fas fa-paper-plane"></i> Mis postulaciones</a></li>
+                <li><a href="#"><i class="fas fa-bell"></i> Mis alertas</a></li>
+                <li><a href="#"><i class="fas fa-clipboard-check"></i> Test y evaluaciones</a></li>
+                <li><a href="#"><i class="fas fa-heart"></i> Mis favoritos</a></li>
+            </ul>
+        </nav>
+
+        <div class="main-content-area">
+            <aside class="left-sidebar">
+                <div class="sidebar-card profile-completion-card">
+                    <div class="profile-header">
+                        <div class="avatar-placeholder">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h3>Sergio Gomez</h3>
+                    </div>
+                    <p class="profile-status">Perfil completado 0%</p>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" style="width: 0%;"></div>
+                    </div>
+                    <button class="cta-button">Finaliza tu CV para poder postularte</button>
+                </div>
+
+                <div class="sidebar-card tests-evaluations-card">
+                    <h4>Test y evaluaciones</h4>
+                    <p>Acredita tus conocimentos y habilidades.</p>
+                    <div class="badges-placeholder">
+                        <i class="fas fa-medal"></i>
+                        <i class="fas fa-certificate"></i>
+                        <i class="fas fa-award"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+
+                <div class="sidebar-card profile-views-card">
+                    <h4>Quién vio mi perfil <i class="fas fa-chevron-right"></i></h4>
+                    <p>Aún no tienes visualizaciones. Postúlate para atraer la atención.</p>
+                </div>
+            </aside>
+
+            <main class="job-listings">
+                <h2>Ofertas que <span class="highlight-accent">encajan con tu perfil</span></h2> 
+
+                <article class="job-card">
+                    <div class="job-card-header">
+                        <h3 class="job-title">Ayudante general Lunes a Viernes</h3>
+                    </div>
+                    <div class="job-company-info">
+                        <i class="fas fa-building company-icon"></i> CGS CONSULTORES
+                    </div>
+                    <p class="job-location"><i class="fas fa-map-marker-alt"></i> Estado de México, Cuautitlán Izcalli</p>
+                    <p class="job-salary"><i class="fas fa-dollar-sign"></i> $ 9,000.00 (Mensual)</p>
+                    <p class="job-timestamp">Ayer</p>
+                </article>
+
+                <article class="job-card featured-job">
+                    <span class="featured-badge"><i class="fas fa-star"></i> Empleo destacado</span>
+                    <div class="job-card-header">
+                        <h3 class="job-title">Ayudante general vespertino nocturno giro industria de alimentos</h3>
+                    </div>
+                    <div class="job-company-info">
+                        <i class="fas fa-building company-icon"></i> People Zone <span class="company-rating">3.8 <i class="fas fa-star"></i></span>
+                    </div>
+                    <p class="job-location"><i class="fas fa-map-marker-alt"></i> Estado de México, Tlalnepantla de Baz</p>
+                    <p class="job-timestamp">Hace 2 días</p>
+                </article>
+
+                <article class="job-card">
+                    <div class="job-card-header">
+                        <h3 class="job-title">Analista de Datos Jr.</h3>
+                    </div>
+                    <div class="job-company-info">
+                        <i class="fas fa-building company-icon"></i> Tech Solutions S.A. de C.V.
+                    </div>
+                    <p class="job-location"><i class="fas fa-map-marker-alt"></i> Ciudad de México, Remoto</p>
+                    <p class="job-salary"><i class="fas fa-dollar-sign"></i> $ 12,500.00 (Mensual)</p>
+                    <p class="job-timestamp">Hace 3 días</p>
+                </article>
+            </main>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

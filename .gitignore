@@ -1,0 +1,19 @@
+# Entorno virtual
+venv/
+
+# Archivos de caché de Python
+__pycache__/
+*.pyc
+
+# Base de datos local (si usas SQLite para pruebas)
+*.sqlite3
+
+# Archivos de entorno (¡Contienen secretos!)
+.env
+
+# Carpeta de archivos estáticos de Django (se genera en el servidor)
+staticfiles/
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
